@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: 'https://github.com/ronaelshef3/quakeWatch1.git'
     # עדכן את הנתיב לתיקייה הספציפית של ה-Chart
-    path: 'my-chart'
+    path: 'my-app-chart'
     targetRevision: HEAD
 
     # --- הסעיף החשוב ---
