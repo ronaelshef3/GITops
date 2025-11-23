@@ -5,6 +5,13 @@ metadata:
   name: my-app
   # The namespace where this Application resource will be installed (usually 'argocd')
   namespace: argocd
+  annotations:
+    # -------------------------------------------------------------------
+    # החלק הקריטי: הגדרת גל סנכרון (Sync Wave)
+    # זה מבטיח ש-ArgoCD ינסה לפרוס את האפליקציה הזו רק אחרי
+    # שכל הפריסות ב-Wave 0 (כמו ה-CRDs) הסתיימו.
+    argocd.argoproj.io/sync-wave: "1"
+    # --------------------------------------
 spec:
   # Which "project" within ArgoCD this application belongs to
   project: default
