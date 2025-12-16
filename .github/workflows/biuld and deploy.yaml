@@ -3,7 +3,7 @@ name: tests
 on:
   push:
     branches:
-    - "*"
+      - main
 permissions: write-all
 jobs:
   build-and-deploy:
