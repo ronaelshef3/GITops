@@ -4,6 +4,10 @@ metadata:
   name: {{ include "my-app-chart.fullname" . }}
   labels:
     {{- include "my-app-chart.labels" . | nindent 4 }}
+  annotations: # <--- זה המקום הנכון!
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "5000"
+    prometheus.io/path: "/metrics"
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
@@ -16,6 +20,7 @@ spec:
       {{- with .Values.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
+
       {{- end }}
       labels:
         {{- include "my-app-chart.labels" . | nindent 8 }}
